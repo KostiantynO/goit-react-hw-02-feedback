@@ -7,9 +7,22 @@ export const theme = Object.freeze({
     white: '#FFFFFF',
     teal: 'teal',
     cyan: '#E0FFFF',
+    lighterGrey: '#EEEEEE',
+    lightGrey: '#CCCCCC',
+    darkBlue: '#3f56ae',
+    lightSalad: '#CAFEBABE',
+    darkGreen: '#4caf50',
   },
   spacing: (...args) => args.map(v => `${v * 4}px`).join(' '),
   transition: (...args) =>
     `transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-     transition-property: ${args.join(' ')}`,
+     transition-property: ${args && args.join(', ')}`,
+  zIndex: selector => {
+    const els = ['TodoItemStyled::after', 'DeleteTodoBtn'];
+    for (let i = 0; i < els.length; i++) {
+      if (selector === els[i].toLowerCase() || i === els.length) {
+        return (i + 1) * 4;
+      }
+    }
+  },
 });
