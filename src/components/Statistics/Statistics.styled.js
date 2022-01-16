@@ -1,19 +1,24 @@
 import { styled, theme } from 'common';
 
 export const StatisticsStyled = styled.div`
+  contain: content;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(12px, 2.1vw, 28px);
-
+  gap: clamp(12px, 2.1vw, 20px);
+  max-width: 320px;
   padding: ${({ theme }) => theme.spacing(4, 0)};
+  margin: 0 auto;
 `;
 
 export const StatListStyled = styled.ul`
+  contain: content;
   display: flex;
   flex-direction: column;
+  gap: clamp(16px, 2.1vw, 20px);
+  max-width: 320px;
 
-  gap: clamp(16px, 2.1vw, 32px);
+  margin: 0 auto;
 `;
 
 export const StatItemStyled = styled.li`

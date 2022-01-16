@@ -24,6 +24,6 @@ export const ButtonStyled = styled.button.attrs(({ type }) => ({
   :hover,
   :focus {
     background-color: ${({ theme }) => theme.colors.accent};
-    transform: scale(1.02);
+    transform: scale(1.03);
   }
 `;

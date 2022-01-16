@@ -5,5 +5,6 @@ export const AppStyled = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 
-  gap: 20px;
+  gap: clamp(4px, 2.1vw, 16px);
+  max-width: 900px;
 `;

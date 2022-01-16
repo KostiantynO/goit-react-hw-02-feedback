@@ -5,16 +5,16 @@ export const FeedbackOptionsList = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: clamp(12px, 2.1vw, 20px);
 
-  gap: clamp(12px, 2.1vw, 28px);
-  padding: 16px 0px;
   max-width: 320px;
+  padding: 16px 0px;
+  margin: 0 auto;
 `;
 
 export const FeedbackOptionsItemStyled = styled.li``;
 
 export const FeedbackBtnStyled = styled(ButtonStyled)`
-  /* color: ${({ theme }) => theme.colors.black}; */
   width: clamp(120px, 20vw, 200px);
   gap: clamp(4px, 2.1vw, 12px);
 `;
