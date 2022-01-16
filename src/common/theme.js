@@ -13,10 +13,13 @@ export const theme = Object.freeze({
     lightSalad: '#CAFEBABE',
     darkGreen: '#4caf50',
   },
+
   spacing: (...args) => args.map(v => `${v * 4}px`).join(' '),
+
   transition: (...args) =>
     `transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-     transition-property: ${args && args.join(', ')}`,
+     transition-property: ${args.join(', ')};`,
+
   zIndex: selector => {
     const els = ['TodoItemStyled::after', 'DeleteTodoBtn'];
     for (let i = 0; i < els.length; i++) {

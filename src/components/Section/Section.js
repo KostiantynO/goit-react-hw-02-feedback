@@ -1,17 +1,16 @@
 import { Container, PropTypes } from 'common';
-import { SectionStyled } from './Section.styled';
+import { SectionStyled, SectionTitleStyled } from './Section.styled';
+export const Section = ({ title, children, ...props }) => (
+  <SectionStyled {...props}>
+    <Container>
+      <SectionTitleStyled>
+        <span>{title}</span>
+      </SectionTitleStyled>
+    </Container>
 
-export const Section = ({ title, children }) => {
-  return (
-    <SectionStyled>
-      <Container>
-        <h2>{title}</h2>
-      </Container>
-
-      {children}
-    </SectionStyled>
-  );
-};
+    {children}
+  </SectionStyled>
+);
 
 Section.propTypes = {
   title: PropTypes.string.isRequired,

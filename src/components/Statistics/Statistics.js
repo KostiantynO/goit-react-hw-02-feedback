@@ -1,42 +1,44 @@
 import { PropTypes } from 'common';
+import {
+  StatisticsStyled,
+  StatItemStyled,
+  StatListStyled,
+} from './Statistics.styled';
+
+const ListItem = obj => (
+  <StatItemStyled key={Object.keys(obj)}>
+    <p>
+      {Object.keys(obj)}: <span>{Object.values(obj)}</span>
+    </p>
+  </StatItemStyled>
+);
+
+const FeedbackStat = ({ label, score }) => (
+  <p>
+    {label}: <span>{score}</span>
+  </p>
+);
 
 export const Statistics = ({
   good,
   neutral,
   bad,
+
   total,
   positivePercentage,
 }) => {
+  const options = [{ good }, { neutral }, { bad }];
+
   return (
-    <div>
-      <ul>
-        <li>
-          <p>
-            Good: <span>{good}</span>
-          </p>
-        </li>
+    <StatisticsStyled>
+      <StatListStyled>{options.map(ListItem)}</StatListStyled>
 
-        <li>
-          <p>
-            Neutral: <span>{neutral}</span>
-          </p>
-        </li>
-
-        <li>
-          <p>
-            Bad: <span>{bad}</span>
-          </p>
-        </li>
-      </ul>
-
-      <p>
-        Total: <span>{total}</span>
-      </p>
-
-      <p>
-        Positive feedback: <span>{positivePercentage}%</span>
-      </p>
-    </div>
+      <FeedbackStat label="Total" score={total} />
+      <FeedbackStat
+        label="Positive feedback"
+        score={positivePercentage + '%'}
+      />
+    </StatisticsStyled>
   );
 };
 
