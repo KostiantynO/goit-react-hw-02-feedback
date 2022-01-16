@@ -3,6 +3,7 @@ import { FeedbackOptions } from 'components/FeedbackOptions';
 import { Notification } from 'components/Notification';
 import { Section } from 'components/Section';
 import { Statistics } from 'components/Statistics';
+import { AppStyled } from './App.styled';
 
 // import PropTypes from 'prop-types'
 
@@ -28,14 +29,8 @@ export default class App extends Component {
   };
 
   countPositiveFeedbackPercentage = () => {
-    const total = this.countTotalFeedback();
     const { good } = this.state;
-
-    // Object.entries(this.state).reduce(
-    //   (acc, [name, good]) =>
-    //     name === 'good' ? ((good / total) * 100).toFixed(0) : acc,
-    //   0,
-    // );
+    const total = this.countTotalFeedback();
 
     return total === 0 ? 0 : ((good * 100) / total).toFixed(0);
   };
@@ -46,7 +41,7 @@ export default class App extends Component {
     const positivePercentage = this.countPositiveFeedbackPercentage();
 
     return (
-      <div>
+      <AppStyled>
         <Section title="Please leave feedback">
           <Container>
             <FeedbackOptions
@@ -71,7 +66,7 @@ export default class App extends Component {
             )}
           </Container>
         </Section>
-      </div>
+      </AppStyled>
     );
   }
 }

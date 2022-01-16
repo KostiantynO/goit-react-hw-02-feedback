@@ -5,9 +5,10 @@ export const SectionStyled = styled.section`
 `;
 
 export const SectionTitleStyled = styled.h2`
-  margin-bottom: clamp(20px, 2.1vw, 32px);
+  margin-bottom: clamp(28px, 2.1vw, 36px);
   font-size: clamp(2rem, 4vw, 3.5rem);
   transform: translateX(50%);
+  color: ${({ theme }) => theme.colors.lightTeal};
 
   ${({ theme }) => theme.transition('transform')}
 

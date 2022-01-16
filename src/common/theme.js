@@ -12,6 +12,7 @@ export const theme = Object.freeze({
     darkBlue: '#3f56ae',
     lightSalad: '#CAFEBABE',
     darkGreen: '#4caf50',
+    lightTeal: '#61dafb',
   },
 
   spacing: (...args) => args.map(v => `${v * 4}px`).join(' '),

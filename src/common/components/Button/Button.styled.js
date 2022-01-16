@@ -19,10 +19,11 @@ export const ButtonStyled = styled.button.attrs(({ type }) => ({
   border-radius: ${({ theme, round }) => (round ? '50%' : theme.spacing(1))};
   appearance: none;
 
-  ${({ theme }) => theme.transition('color', 'background-color')};
+  ${({ theme }) => theme.transition('color', 'background-color', 'transform')};
 
   :hover,
   :focus {
     background-color: ${({ theme }) => theme.colors.accent};
+    transform: scale(1.02);
   }
 `;

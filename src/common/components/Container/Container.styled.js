@@ -1,6 +1,8 @@
 import { styled } from 'common';
 
 export const ContainerStyled = styled.div`
+  contain: content;
+
   margin: 0 auto;
   padding: ${({ theme }) => theme.spacing(0, 4)};
   max-width: ${({ theme }) => theme.spacing(100)};

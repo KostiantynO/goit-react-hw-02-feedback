@@ -1,23 +1,32 @@
 import { PropTypes } from 'common';
 import {
   StatisticsStyled,
-  StatItemStyled,
   StatListStyled,
+  StatItemStyled,
+  FeedbackStatStyled,
 } from './Statistics.styled';
 
-const ListItem = obj => (
+import AnimatedNumber from 'animated-number-react';
+
+const listItem = obj => (
   <StatItemStyled key={Object.keys(obj)}>
     <p>
-      {Object.keys(obj)}: <span>{Object.values(obj)}</span>
+      <span>{Object.keys(obj)}:</span> <span>{Object.values(obj)}</span>
     </p>
   </StatItemStyled>
 );
 
-const FeedbackStat = ({ label, score }) => (
-  <p>
-    {label}: <span>{score}</span>
-  </p>
-);
+const FeedbackStat = ({ sign, label, score }) => {
+  const formatValue = value =>
+    sign === '%' ? value.toFixed(0) + '%' : value.toFixed(0);
+
+  return (
+    <FeedbackStatStyled>
+      {label}:
+      <AnimatedNumber value={score} formatValue={formatValue} duration={210} />
+    </FeedbackStatStyled>
+  );
+};
 
 export const Statistics = ({
   good,
@@ -28,15 +37,14 @@ export const Statistics = ({
   positivePercentage,
 }) => {
   const options = [{ good }, { neutral }, { bad }];
-
   return (
     <StatisticsStyled>
-      <StatListStyled>{options.map(ListItem)}</StatListStyled>
-
+      <StatListStyled>{options.map(listItem)}</StatListStyled>
       <FeedbackStat label="Total" score={total} />
       <FeedbackStat
         label="Positive feedback"
-        score={positivePercentage + '%'}
+        sign="%"
+        score={positivePercentage}
       />
     </StatisticsStyled>
   );
