@@ -1,7 +1,7 @@
 ```shell
 npx create-react-app goit-react-hw-02-feedback
 
-npm i -D prettier eslint prop-types gh-pages styled components
+npm i -D prettier eslint prop-types gh-pages styled-components
 
 npx mrm@2 lint-staged
 
